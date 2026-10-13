@@ -1,0 +1,33 @@
+{
+  "trained_at": "2026-10-13T11:09:17Z",
+  "random_seed": 42,
+  "test_size": 0.2,
+  "train_rows": 4000,
+  "test_rows": 1000,
+  "train_suspicious": 800,
+  "test_suspicious": 200,
+  "feature_columns": [
+    "hour_of_day",
+    "day_of_week",
+    "is_weekend",
+    "is_error",
+    "failed_attempts",
+    "unusual_location",
+    "privilege_change",
+    "is_iam_event",
+    "is_high_risk_action",
+    "event_source_enc",
+    "event_name_enc",
+    "region_enc"
+  ],
+  "model_params": {
+    "n_estimators": 100,
+    "max_depth": 10,
+    "min_samples_leaf": 5,
+    "class_weight": "balanced",
+    "random_state": 42,
+    "n_jobs": -1
+  },
+  "data_source": "synthetic",
+  "synthetic_data_notice": "This model was trained on entirely synthetic data. Evaluation metrics do NOT demonstrate real-world cloud security detection performance."
+}

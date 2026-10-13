@@ -1,0 +1,63 @@
+# =============================================================================
+# .gitignore — AI-Powered Cloud Security Threat Detection
+# =============================================================================
+
+# Python bytecode
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Virtual environment
+venv/
+.venv/
+
+# Pytest cache
+.pytest_cache/
+
+# Editor / IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# =============================================================================
+# SECURITY — NEVER COMMIT THESE
+# =============================================================================
+
+# AWS credentials and environment config
+.env
+*.env
+.aws/
+
+# Real CloudTrail log files (may contain PII / account IDs)
+data/cloud_samples/*.json
+data/cloud_samples/*.log
+data/cloud_samples/*.gz
+
+# Any file that might contain real AWS account info
+*credentials*
+*aws_config*
+
+# =============================================================================
+# Data files (large; generated locally)
+# =============================================================================
+data/raw/cloudtrail_synthetic_v1_original.csv
+data/database/security_logs_v1_original.db
+
+# Keep the current synthetic CSV and database (they are safe to commit)
+# data/raw/cloudtrail_synthetic.csv    <- tracked
+# data/database/security_logs.db      <- tracked
+
+# =============================================================================
+# Reports (generated at runtime — not source files)
+# =============================================================================
+reports/cloudtrail_evaluation.txt
+
+# Keep the synthetic model evaluation report
+# reports/model_evaluation.txt         <- tracked
+
+# =============================================================================
+# Logs
+# =============================================================================
+*.log
+logs/

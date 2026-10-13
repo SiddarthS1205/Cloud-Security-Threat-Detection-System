@@ -1,0 +1,259 @@
+{
+  "Records": [
+    {
+      "eventVersion": "1.08",
+      "eventTime": "2024-06-15T10:05:12Z",
+      "eventSource": "s3.amazonaws.com",
+      "eventName": "GetObject",
+      "awsRegion": "us-east-1",
+      "sourceIPAddress": "192.0.2.10",
+      "userIdentity": {
+        "type": "IAMUser",
+        "userName": "alice",
+        "accountId": "111122223333"
+      },
+      "errorCode": null,
+      "requestParameters": {"bucketName": "my-app-bucket", "key": "reports/q1.csv"},
+      "responseElements": null,
+      "eventID": "ct-fix-001"
+    },
+    {
+      "eventVersion": "1.08",
+      "eventTime": "2024-06-15T10:12:44Z",
+      "eventSource": "s3.amazonaws.com",
+      "eventName": "PutObject",
+      "awsRegion": "us-east-1",
+      "sourceIPAddress": "192.0.2.10",
+      "userIdentity": {
+        "type": "IAMUser",
+        "userName": "alice",
+        "accountId": "111122223333"
+      },
+      "errorCode": null,
+      "requestParameters": {"bucketName": "my-app-bucket", "key": "uploads/file.txt"},
+      "responseElements": null,
+      "eventID": "ct-fix-002"
+    },
+    {
+      "eventVersion": "1.08",
+      "eventTime": "2024-06-15T11:03:00Z",
+      "eventSource": "s3.amazonaws.com",
+      "eventName": "ListBuckets",
+      "awsRegion": "us-east-1",
+      "sourceIPAddress": "198.51.100.5",
+      "userIdentity": {
+        "type": "IAMUser",
+        "userName": "bob",
+        "accountId": "111122223333"
+      },
+      "errorCode": null,
+      "requestParameters": null,
+      "responseElements": null,
+      "eventID": "ct-fix-003"
+    },
+    {
+      "eventVersion": "1.08",
+      "eventTime": "2024-06-15T11:30:21Z",
+      "eventSource": "ec2.amazonaws.com",
+      "eventName": "DescribeInstances",
+      "awsRegion": "us-west-2",
+      "sourceIPAddress": "192.0.2.20",
+      "userIdentity": {
+        "type": "IAMUser",
+        "userName": "carol",
+        "accountId": "111122223333"
+      },
+      "errorCode": null,
+      "requestParameters": {},
+      "responseElements": null,
+      "eventID": "ct-fix-004"
+    },
+    {
+      "eventVersion": "1.08",
+      "eventTime": "2024-06-15T12:00:05Z",
+      "eventSource": "ec2.amazonaws.com",
+      "eventName": "DescribeSecurityGroups",
+      "awsRegion": "us-west-2",
+      "sourceIPAddress": "192.0.2.20",
+      "userIdentity": {
+        "type": "IAMUser",
+        "userName": "carol",
+        "accountId": "111122223333"
+      },
+      "errorCode": null,
+      "requestParameters": {},
+      "responseElements": null,
+      "eventID": "ct-fix-005"
+    },
+    {
+      "eventVersion": "1.08",
+      "eventTime": "2024-06-15T13:15:33Z",
+      "eventSource": "iam.amazonaws.com",
+      "eventName": "GetUser",
+      "awsRegion": "us-east-1",
+      "sourceIPAddress": "192.0.2.15",
+      "userIdentity": {
+        "type": "IAMUser",
+        "userName": "dave",
+        "accountId": "111122223333"
+      },
+      "errorCode": null,
+      "requestParameters": {"userName": "dave"},
+      "responseElements": null,
+      "eventID": "ct-fix-006"
+    },
+    {
+      "eventVersion": "1.08",
+      "eventTime": "2024-06-15T14:22:10Z",
+      "eventSource": "iam.amazonaws.com",
+      "eventName": "ListUsers",
+      "awsRegion": "us-east-1",
+      "sourceIPAddress": "192.0.2.15",
+      "userIdentity": {
+        "type": "IAMUser",
+        "userName": "dave",
+        "accountId": "111122223333"
+      },
+      "errorCode": null,
+      "requestParameters": {},
+      "responseElements": null,
+      "eventID": "ct-fix-007"
+    },
+    {
+      "eventVersion": "1.08",
+      "eventTime": "2024-06-15T15:08:47Z",
+      "eventSource": "sts.amazonaws.com",
+      "eventName": "GetCallerIdentity",
+      "awsRegion": "us-east-1",
+      "sourceIPAddress": "192.0.2.10",
+      "userIdentity": {
+        "type": "IAMUser",
+        "userName": "alice",
+        "accountId": "111122223333"
+      },
+      "errorCode": null,
+      "requestParameters": null,
+      "responseElements": null,
+      "eventID": "ct-fix-008"
+    },
+    {
+      "eventVersion": "1.08",
+      "eventTime": "2024-06-15T16:45:02Z",
+      "eventSource": "kms.amazonaws.com",
+      "eventName": "DescribeKey",
+      "awsRegion": "eu-west-1",
+      "sourceIPAddress": "198.51.100.10",
+      "userIdentity": {
+        "type": "IAMUser",
+        "userName": "eve",
+        "accountId": "111122223333"
+      },
+      "errorCode": null,
+      "requestParameters": {"keyId": "alias/my-key"},
+      "responseElements": null,
+      "eventID": "ct-fix-009"
+    },
+    {
+      "eventVersion": "1.08",
+      "eventTime": "2024-06-15T17:55:19Z",
+      "eventSource": "cloudtrail.amazonaws.com",
+      "eventName": "DescribeTrails",
+      "awsRegion": "us-east-1",
+      "sourceIPAddress": "192.0.2.15",
+      "userIdentity": {
+        "type": "IAMUser",
+        "userName": "dave",
+        "accountId": "111122223333"
+      },
+      "errorCode": null,
+      "requestParameters": {},
+      "responseElements": null,
+      "eventID": "ct-fix-010"
+    },
+    {
+      "eventVersion": "1.08",
+      "eventTime": "2024-06-16T02:17:44Z",
+      "eventSource": "iam.amazonaws.com",
+      "eventName": "AttachUserPolicy",
+      "awsRegion": "ap-northeast-1",
+      "sourceIPAddress": "203.0.113.99",
+      "userIdentity": {
+        "type": "IAMUser",
+        "userName": "frank",
+        "accountId": "111122223333"
+      },
+      "errorCode": "AccessDenied",
+      "requestParameters": {"userName": "target-user", "policyArn": "arn:aws:iam::aws:policy/AdministratorAccess"},
+      "responseElements": null,
+      "eventID": "ct-fix-011"
+    },
+    {
+      "eventVersion": "1.08",
+      "eventTime": "2024-06-16T02:31:05Z",
+      "eventSource": "cloudtrail.amazonaws.com",
+      "eventName": "StopLogging",
+      "awsRegion": "us-east-1",
+      "sourceIPAddress": "203.0.113.88",
+      "userIdentity": {
+        "type": "IAMUser",
+        "userName": "frank",
+        "accountId": "111122223333"
+      },
+      "errorCode": null,
+      "requestParameters": {"name": "my-trail"},
+      "responseElements": null,
+      "eventID": "ct-fix-012"
+    },
+    {
+      "eventVersion": "1.08",
+      "eventTime": "2024-06-16T03:00:00Z",
+      "eventSource": "sts.amazonaws.com",
+      "eventName": "AssumeRoleWithWebIdentity",
+      "awsRegion": "eu-west-1",
+      "sourceIPAddress": "203.0.113.55",
+      "userIdentity": {
+        "type": "AssumedRole",
+        "userName": null,
+        "accountId": "111122223333"
+      },
+      "errorCode": null,
+      "requestParameters": {"roleArn": "arn:aws:iam::111122223333:role/WebRole"},
+      "responseElements": null,
+      "eventID": "ct-fix-013"
+    },
+    {
+      "eventVersion": "1.08",
+      "eventTime": "2024-06-16T03:22:15Z",
+      "eventSource": "iam.amazonaws.com",
+      "eventName": "CreateUser",
+      "awsRegion": "ap-northeast-1",
+      "sourceIPAddress": "203.0.113.99",
+      "userIdentity": {
+        "type": "IAMUser",
+        "userName": "frank",
+        "accountId": "111122223333"
+      },
+      "errorCode": null,
+      "requestParameters": {"userName": "backdoor-user"},
+      "responseElements": null,
+      "eventID": "ct-fix-014"
+    },
+    {
+      "eventVersion": "1.08",
+      "eventTime": "2024-06-16T03:45:00Z",
+      "eventSource": "s3.amazonaws.com",
+      "eventName": "GetObject",
+      "awsRegion": "us-east-1",
+      "sourceIPAddress": "203.0.113.12",
+      "userIdentity": {
+        "type": "IAMUser",
+        "userName": "frank",
+        "accountId": "111122223333"
+      },
+      "errorCode": null,
+      "requestParameters": {"bucketName": "sensitive-data", "key": "customers.csv"},
+      "responseElements": null,
+      "eventID": "ct-fix-015"
+    }
+  ]
+}

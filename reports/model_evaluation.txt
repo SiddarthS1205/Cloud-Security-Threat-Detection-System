@@ -1,0 +1,132 @@
+======================================================================
+AI-POWERED CLOUD SECURITY THREAT DETECTION
+Model Evaluation Report — Phase 3
+Generated: 2026-10-13T11:09:17Z
+======================================================================
+
+SYNTHETIC DATA NOTICE
+----------------------------------------------------------------------
+This model was trained and evaluated on a SYNTHETIC dataset.
+Labels were assigned by a deterministic rule engine, not by
+human analysts reviewing real AWS CloudTrail activity.
+Performance metrics reflect how well the model learned the
+synthetic patterns. They do NOT establish real-world cloud
+security detection performance.
+Evaluation on real AWS CloudTrail logs (Phase 6) is required
+before any operational conclusions can be drawn.
+
+DATASET SUMMARY
+----------------------------------------------------------------------
+  Training rows : 4,000  (normal: 3,200  suspicious: 800)
+  Test rows     : 1,000  (normal: 800  suspicious: 200)
+  Split         : 80% train / 20% test, stratified, seed=42
+  Data source   : synthetic (v2 noise-injected, seed=42)
+
+MODEL
+----------------------------------------------------------------------
+  Algorithm     : RandomForestClassifier
+  n_estimators  : 100
+  max_depth     : 10
+  min_samples_leaf : 5
+  class_weight  : balanced
+  random_state  : 42
+
+LEAKAGE PREVENTION
+----------------------------------------------------------------------
+  1. Train/test split performed on raw rows BEFORE feature engineering.
+  2. LabelEncoders fitted on training rows only; applied to test rows.
+  3. 'label' separated from features before any transformation.
+  4. 'event_id' (UUID) excluded from model inputs.
+
+EVALUATION METRICS (held-out test set)
+----------------------------------------------------------------------
+  Accuracy          : 0.9820
+  Precision (macro) : 0.9656
+  Recall    (macro) : 0.9794
+  F1        (macro) : 0.9723
+  F1     (weighted) : 0.9821
+  F1    (suspicious): 0.9559  <-- primary metric (imbalanced class)
+
+CONFUSION MATRIX
+----------------------------------------------------------------------
+  Rows = actual class  |  Columns = predicted class
+
+                   Predicted Normal  Predicted Suspicious
+  Actual Normal             787                  13         
+  Actual Suspicious          5                  195         
+
+  True Positives  (TP):  195  — suspicious caught correctly
+  True Negatives  (TN):  787  — normal flagged correctly
+  False Positives (FP):   13  — normal wrongly flagged as suspicious
+  False Negatives (FN):    5  — suspicious missed by the model
+
+CLASSIFICATION REPORT
+----------------------------------------------------------------------
+                precision    recall  f1-score   support
+
+    normal (0)       0.99      0.98      0.99       800
+suspicious (1)       0.94      0.97      0.96       200
+
+      accuracy                           0.98      1000
+     macro avg       0.97      0.98      0.97      1000
+  weighted avg       0.98      0.98      0.98      1000
+
+
+FEATURE IMPORTANCES (Random Forest — mean decrease in impurity)
+----------------------------------------------------------------------
+   1. unusual_location           0.3880  #######################
+   2. is_high_risk_action        0.2184  #############
+   3. hour_of_day                0.1997  ###########
+   4. event_name_enc             0.0514  ###
+   5. privilege_change           0.0324  #
+   6. event_source_enc           0.0278  #
+   7. is_error                   0.0273  #
+   8. is_iam_event               0.0242  #
+   9. region_enc                 0.0143  
+  10. failed_attempts            0.0093  
+  11. day_of_week                0.0059  
+  12. is_weekend                 0.0014  
+
+SINGLE-FEATURE F1 ANALYSIS (synthetic-data artefact check)
+----------------------------------------------------------------------
+  A depth-1 decision tree is trained on each feature alone.
+  High F1 for a single feature indicates the labelling rule
+  is visible in that feature — a known limitation of synthetic data.
+  In real CloudTrail data, these scores would be much lower.
+
+  unusual_location           F1=0.851  ##################################  <-- SYNTHETIC ARTEFACT
+  is_high_risk_action        F1=0.762  ##############################  <-- SYNTHETIC ARTEFACT
+  hour_of_day                F1=0.724  ############################  <-- SYNTHETIC ARTEFACT
+  privilege_change           F1=0.409  ################
+  is_error                   F1=0.399  ###############
+  event_name_enc             F1=0.291  ###########
+  failed_attempts            F1=0.180  #######
+  day_of_week                F1=0.000  
+  is_weekend                 F1=0.000  
+  is_iam_event               F1=0.000  
+  event_source_enc           F1=0.000  
+  region_enc                 F1=0.000  
+
+KNOWN LIMITATIONS OF THIS EVALUATION
+----------------------------------------------------------------------
+  1. SYNTHETIC DATA: Labels were assigned by rule engine, not analysts.
+     High accuracy reflects synthetic pattern learning, not real detection.
+
+  2. NOISE INJECTION (v2): Normal records now occasionally have errors,
+     unusual-location flags, privilege changes, and off-hours timestamps.
+     This reduces single-feature predictive power but the dataset is
+     still far more structured than real AWS CloudTrail logs.
+
+  3. SMALL DATASET: 5,000 records is sufficient for a student project
+     but too small for production threat detection systems.
+
+  4. NO REAL VALIDATION: The model has not been tested on any real
+     AWS CloudTrail data. Phase 6 integration is required for that.
+
+  5. CLASS IMBALANCE: 80/20 normal/suspicious. class_weight='balanced'
+     compensates during training, but real environments may have
+     far fewer than 20% suspicious events.
+
+======================================================================
+END OF REPORT
+======================================================================

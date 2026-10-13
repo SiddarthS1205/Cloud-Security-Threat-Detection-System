@@ -1,0 +1,28 @@
+# ip_allowlist.yaml
+# =================
+# Known-safe IP address prefixes for the unusual_location feature.
+#
+# How it works:
+#   If a CloudTrail event's sourceIPAddress starts with any prefix listed
+#   here, unusual_location is set to 0 (not unusual).
+#   If it does not match any prefix, unusual_location is set to 1 (unusual).
+#   If this list is empty, ALL IPs return unusual_location=0 (conservative).
+#
+# IMPORTANT LIMITATIONS:
+#   - unusual_location=1 does NOT prove malicious intent.
+#   - unusual_location=0 does NOT confirm activity is safe.
+#   - This list is an approximation of "known office/VPN IP ranges".
+#   - For a real deployment, replace with your organisation's actual IP ranges.
+#
+# Example entries (replace with your actual known-safe prefixes):
+#   known_prefixes:
+#     - "10.0."        # Internal network
+#     - "172.16."      # VPN range
+#     - "192.168."     # Office LAN
+#
+# For the CPPE project demonstration (Option B — no live AWS):
+# Using only the IANA documentation ranges that appear in the fixture file.
+
+known_prefixes:
+  - "192.0.2."      # IANA RFC 5737 documentation range (used in fixture)
+  - "198.51.100."   # IANA RFC 5737 documentation range (used in fixture)
