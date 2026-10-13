@@ -154,39 +154,6 @@ Cloud-Security-Threat-Detection-System/
 
 *This is the intended overview of the principal project files. Your actual repository may omit generated data, databases, or model artifacts through `.gitignore`.*
 
-## 🖥️ Application Output Screenshots
-
-### 1. Security Overview Dashboard
-
-Displays security event summaries, normal and suspicious event counts, and available visualizations.
-
-![Security Overview Dashboard](docs/screenshots/security-overview.png)
-
-### 2. Log Upload and Threat Detection
-
-Displays the log upload interface and the results of security-event analysis.
-
-![Log Upload and Detection](docs/screenshots/log-detection.png)
-
-### 3. Model Performance
-
-Displays the machine-learning model's evaluation metrics.
-
-![Model Performance Dashboard](docs/screenshots/model-performance.png)
-
-### 4. Incident Management
-
-Displays the available incident-management interface and security incident records.
-
-![Incident Management Dashboard](docs/screenshots/incident-management.png)
-
-### 5. CPPE Module Overview
-
-Displays the application's overview of the four CPPE modules.
-
-![CPPE Module Overview](docs/screenshots/cppe-module-overview.png)
-
-> **Note:** Replace these image paths with the exact filenames of your actual screenshots. GitHub will display the screenshots only when the referenced files exist in the repository.
 
 ## 📊 Model Evaluation
 
